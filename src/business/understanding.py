@@ -69,7 +69,7 @@ class BusinessAnalyzer:
         # Identify key pages
         key_pages = []
         for page in pages:
-            url_lower = page.url.lower()
+            url_lower = str(page.url).lower()
             if any(keyword in url_lower for keyword in ['about', 'home', 'index', 'who-we-are', 'company']):
                 key_pages.append(page)
                 

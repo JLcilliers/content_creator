@@ -3,6 +3,13 @@ Web crawler with robots.txt respect and intelligent extraction
 """
 import asyncio
 import logging
+import sys
+import io
+
+# Fix Unicode issues on Windows
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 from typing import List, Optional, Set, Dict, Any
 from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
